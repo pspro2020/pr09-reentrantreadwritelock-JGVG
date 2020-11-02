@@ -16,8 +16,8 @@ public class Almacen {
     List<Integer> stock = new ArrayList<Integer>();
 
     public void añadirProducto(int num_product) {
+        writeLock.lock();
         try {
-            writeLock.lock();
             Thread.sleep(2000);
             stock.add(num_product);
             System.out.printf("%s -> %s ha añadido el producto %d al stock.\n", LocalTime.now().format(dateTimeFormatter), Thread.currentThread().getName(), num_product);
@@ -29,8 +29,8 @@ public class Almacen {
     }
 
     public void consultarProducto(int num_product) {
+        readLock.lock();
         try {
-            readLock.lock();
             int contador = 0;
             for (int producto: stock){
                 if(producto == num_product){
