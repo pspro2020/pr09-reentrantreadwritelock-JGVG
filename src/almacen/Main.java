@@ -16,16 +16,5 @@ public class Main {
         cliente02.start();
         cliente03.start();
 
-        try {
-            TimeUnit.SECONDS.sleep(60);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        reponedor.interrupt();
-        cliente01.interrupt();
-        cliente02.interrupt();
-        cliente03.interrupt();
-
     }
 }
